@@ -58,14 +58,14 @@ python -m navigator.run --models claude-sonnet
 2. Runtime → Change runtime type → **L4** (or A100).
 3. Add `HF_TOKEN` in the 🔑 Secrets panel. First accept each model's licence on its Hugging Face page while logged in.
 4. Upload your `results/retrieval.jsonl` when asked, then Run all.
-5. Download `jais-2-8b.jsonl` and `falcon-h1-arabic-7b.jsonl` from the Drive folder into `results/answers/` on your laptop.
+5. Download `jais-2-8b.jsonl` and `falcon-h1-7b.jsonl` from the Drive folder into `results/answers/` on your laptop.
 6. Write down the GPU type and its cost per hour, and put it in `config/models.yaml` (`gpu_usd_per_hour`).
 
 ## 6. Score and report (~10 min)
 
 Add the current per-token prices for Claude in `config/models.yaml`, then:
 ```bash
-python -m navigator.score --models claude-sonnet jais-2-8b falcon-h1-arabic-7b
+python -m navigator.score --models claude-sonnet jais-2-8b falcon-h1-7b
 python -m navigator.report
 ```
 Read `results/summary.md`.

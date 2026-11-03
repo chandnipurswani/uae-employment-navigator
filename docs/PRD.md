@@ -29,7 +29,7 @@ A team building an AI assistant for this has to answer one question before anyth
 | UAE Labour Law (Federal Decree-Law 33/2021 and amendments), official **Arabic and English** | DIFC, DMCC and other free zones (v2) |
 | ADGM Employment Regulations 2024 (English, the official language) | Executive Regulation (Cabinet Res. 1/2022), apart from what's in the MOHRE consolidated PDF |
 | 40-question bilingual test set | Multi-turn chat and personal case advice |
-| 3 models: Jais 2 8B Chat, Falcon-H1-Arabic 7B Instruct, Claude | Fine-tuning |
+| 3 models: Jais 2 8B Chat, Falcon-H1 7B Instruct (see D19), Claude | Fine-tuning |
 
 ## 5. Approach
 

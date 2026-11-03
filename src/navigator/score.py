@@ -1,6 +1,6 @@
 """Score answers: automatic checks + blind LLM judge (D4, D5, D6, D9).
 
-    python -m navigator.score --models claude-sonnet jais-2-8b falcon-h1-arabic-7b
+    python -m navigator.score --models claude-sonnet jais-2-8b falcon-h1-7b
     python -m navigator.score --models mock --no-judge      # automatic checks only
 
 Output: results/scores/<model_id>.jsonl (one row per question, judge calls cached)

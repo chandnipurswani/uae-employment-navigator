@@ -2,7 +2,7 @@
 
 **Which AI model should power a bilingual (Arabic/English) assistant that answers employees' questions about UAE employment rules?**
 
-UAE sovereign open-weight models, **Jais 2** (Inception / G42) and **Falcon-H1-Arabic** (TII), are tested against a frontier API model (**Claude Sonnet**) on the questions employees actually ask: leave, gratuity, notice periods, and the mainland-vs-ADGM split. Answers are in English, Modern Standard Arabic and Gulf dialect.
+UAE sovereign open-weight models, **Jais 2** (Inception / G42, Arabic-first) and **Falcon-H1** (TII, multilingual incl. Arabic), are tested against a frontier API model (**Claude Sonnet**) on the questions employees actually ask: leave, gratuity, notice periods, and the mainland-vs-ADGM split. Answers are in English, Modern Standard Arabic and Gulf dialect.
 
 > **Status:** pipeline built and tested; model runs in progress. Results below will be filled in from `results/summary.md`.
 
@@ -23,7 +23,7 @@ Official PDFs (MOHRE, ADGM)
    → split into Articles / Sections
    → same retrieved passages for every model     ← controlled experiment
    → same prompt: answer, cite, reply in the user's language, say "not covered" when it isn't
-   → Claude via API · Jais 2 8B + Falcon-H1-Arabic 7B self-hosted on a GPU
+   → Claude via API · Jais 2 8B + Falcon-H1 7B self-hosted on a GPU
    → scoring: key-fact check · blind GPT judge · citation check · Arabic check
    → human spot-checks of the judge itself
    → weighted scorecard + "where each model wins"
@@ -33,7 +33,7 @@ Official PDFs (MOHRE, ADGM)
 |---|---|
 | **Corpus** | UAE Labour Law (Decree-Law 33/2021 + amendments), official **Arabic and English**; ADGM Employment Regulations 2024 |
 | **Test set** | 40 questions: 20 English, 20 Arabic (6 in Gulf dialect), 6 mainland-vs-ADGM comparisons, 5 that **should be refused** |
-| **Models** | Jais 2 8B Chat · Falcon-H1-Arabic 7B Instruct (bf16, Colab Pro) · Claude Sonnet |
+| **Models** | Jais 2 8B Chat · Falcon-H1 7B Instruct (bf16, Colab Pro) · Claude Sonnet |
 | **Judge** | GPT, blind to model names (a different model family from the Claude baseline) |
 
 ## How "best" is defined
@@ -75,14 +75,14 @@ python -m navigator.corpus fetch && python -m navigator.corpus build
 python -m navigator.verify_gold
 python -m navigator.retrieve
 python -m navigator.run --models claude-sonnet          # Jais/Falcon: notebooks/run_open_models.ipynb
-python -m navigator.score --models claude-sonnet jais-2-8b falcon-h1-arabic-7b
+python -m navigator.score --models claude-sonnet jais-2-8b falcon-h1-7b
 python -m navigator.report
 streamlit run app/streamlit_app.py
 ```
 
 ## Roadmap
 
-- v2: add the large tier (Jais 2 70B, Falcon-H1-Arabic 34B) and the new **Jais 3** family (released Oct 2026)
+- v2: add the large tier (Jais 2 70B, Falcon-H1 34B, or Falcon-H1-Arabic if TII publishes its weights) and the new **Jais 3** family (released Oct 2026)
 - Add DIFC Employment Law as a third regime
 - Multi-turn: ask the user which regime applies before answering
 

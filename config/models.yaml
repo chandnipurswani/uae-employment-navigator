@@ -16,17 +16,19 @@ models:
     display: "Jais 2 8B Chat (Inception / G42)"
     provider: openai_compatible
     base_url: http://localhost:8000/v1   # vLLM server started in notebooks/run_open_models.ipynb
-    model: inceptionai/Jais-2-8B-Chat    # if 404, try inception42/Jais-2-8B-Chat (check the HF org page)
+    model: inception42/Jais-2-8B-Chat    # confirm on the HF page; older docs use inceptionai/
     precision: bf16
     gpu: "Colab Pro L4/A100"
     gpu_usd_per_hour: null      # fill in: Colab compute-unit cost for the GPU you used
     hosting: "Self-hosted open weights (can run in-country)"
 
-  - id: falcon-h1-arabic-7b
-    display: "Falcon-H1-Arabic 7B Instruct (TII)"
+  # D19: Falcon-H1-Arabic weights are not published (chat app only), so we use TII's
+  # openly downloadable multilingual Falcon-H1 7B (Arabic is one of its 18 languages).
+  - id: falcon-h1-7b
+    display: "Falcon-H1 7B Instruct (TII)"
     provider: openai_compatible
     base_url: http://localhost:8000/v1
-    model: tiiuae/Falcon-H1-Arabic-7B-Instruct   # confirm exact id on huggingface.co/tiiuae
+    model: tiiuae/Falcon-H1-7B-Instruct
     precision: bf16
     gpu: "Colab Pro L4/A100"
     gpu_usd_per_hour: null

@@ -3,7 +3,7 @@ import json
 from pathlib import Path
 
 cells = [
-    ("md", """# Run Jais 2 8B and Falcon-H1-Arabic 7B on Colab Pro
+    ("md", """# Run Jais 2 8B and Falcon-H1 7B on Colab Pro
 
 **Decision D18:** full precision (bf16) on an **L4 or A100** GPU, so the open models are judged as released.
 
@@ -50,7 +50,7 @@ def serve_and_run(model_id):
     print("✓ saved to Drive:", OUT)
 """),
     ("code", "serve_and_run('jais-2-8b')"),
-    ("code", "serve_and_run('falcon-h1-arabic-7b')"),
+    ("code", "serve_and_run('falcon-h1-7b')"),
     ("md", """### If a model fails to load
 - **404 / gated:** open the model page on huggingface.co while logged in and accept the licence; check the exact model id (Jais has moved between `inceptionai/` and `inception42/`) and update `config/models.yaml`.
 - **Architecture not supported:** Jais 2 may need a recent vLLM; Falcon-H1 needs vLLM ≥ 0.9. `!pip install -U vllm` and retry.
