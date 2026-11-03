@@ -1,0 +1,27 @@
+# Experiment settings. Every model gets identical retrieval + prompt (D8).
+
+retrieval:
+  k: 6                          # passages per question
+  strategy: balanced            # D15: always 3 mainland + 3 ADGM passages; "open" = ranking decides
+  mainland_text_lang: match_question   # Arabic questions get the (authoritative) Arabic Labour Law text
+  embeddings: true              # bge-m3 multilingual embeddings (needed for Arabic -> English ADGM)
+  embedding_model: BAAI/bge-m3
+
+generation:
+  temperature: 0.0              # deterministic-as-possible for a fair comparison
+  max_tokens: 500
+
+# D10: weights for the single recommendation. Also reported unweighted per use case.
+weights:
+  accuracy: 0.40                # includes safe refusals on unanswerable questions
+  citations: 0.25
+  arabic: 0.20
+  cost_speed: 0.15
+
+guardrail:
+  max_hallucination_rate: 0.20  # above this on unanswerable Qs -> "not deployable without guardrails"
+
+judge:
+  provider: openai              # D9: a different model family judges Claude's answers
+  model: gpt-5                  # change to the current OpenAI flagship if needed
+  blind: true                   # model names are never shown to the judge

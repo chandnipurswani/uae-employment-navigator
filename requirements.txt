@@ -1,0 +1,10 @@
+pyyaml
+pypdf
+rank_bm25
+anthropic
+openai
+pandas
+matplotlib
+streamlit
+sentence-transformers   # multilingual retrieval (bge-m3); needed for the real benchmark
+pytest

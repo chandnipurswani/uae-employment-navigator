@@ -1,0 +1,38 @@
+# Official source documents. Downloaded by `python -m navigator.corpus fetch`.
+# Several mirror URLs per document: government sites move files around.
+# pinned_date = the date the version we evaluated against was downloaded (filled automatically).
+
+sources:
+  - id: uae_ll_en
+    title: "Federal Decree-Law No. 33 of 2021 Regarding the Regulation of Employment Relationships and its amendments (English)"
+    short: "UAE-LL"           # citation prefix shown to models
+    jurisdiction: mainland
+    lang: en
+    unit: Article
+    authoritative: false     # English is a translation; Arabic text prevails
+    urls:
+      - "https://www.mohre.gov.ae/assets/download/3bde4984/Federal%20Decree-Law%20No.%2033%20of%202021%20Regarding%20the%20Regulation%20of%20Employment%20Relationship%20and%20its%20amendments_638990571068264034.pdf.aspx"
+      - "https://u.ae/-/media/Mohre-2024/Federal-DecreeLaw-No-33-of-2021-Regarding-the-Regulation-of-Employment-Relationship-and-its-amendmen.pdf"
+      - "https://uaelegislation.gov.ae/en/legislations/1541/download"
+
+  - id: uae_ll_ar
+    title: "مرسوم بقانون اتحادي رقم (33) لسنة 2021 بشأن تنظيم علاقات العمل وتعديلاته"
+    short: "UAE-LL"
+    jurisdiction: mainland
+    lang: ar
+    unit: Article
+    authoritative: true
+    urls:
+      - "https://mohre.gov.ae/assets/download/43e39236/%D9%85%D8%B1%D8%B3%D9%88%D9%85%20%D8%A8%D9%82%D8%A7%D9%86%D9%88%D9%86%20%D8%A7%D8%AA%D8%AD%D8%A7%D8%AF%D9%8A%20%D8%B1%D9%82%D9%85%2033%20%D9%84%D8%B3%D9%86%D8%A9%202021%20%D8%A8%D8%B4%D8%A3%D9%86%20%D8%AA%D9%86%D8%B8%D9%8A%D9%85%20%D8%B9%D9%84%D8%A7%D9%82%D8%A7%D8%AA%20%D8%A7%D9%84%D8%B9%D9%85%D9%84%20%D9%88%D8%AA%D8%B9%D8%AF%D9%8A%D9%84%D8%A7%D8%AA%D9%87_638990570577815564.pdf.aspx"
+      - "https://u.ae/-/media/Documents-2022/New-Labour-Law--no-33-of-2021-Ar.pdf"
+      - "https://uaelegislation.gov.ae/ar/legislations/1541/download"
+
+  - id: adgm_er_en
+    title: "ADGM Employment Regulations 2024"
+    short: "ADGM-ER"
+    jurisdiction: adgm
+    lang: en
+    unit: Section
+    authoritative: true      # ADGM legislation is issued in English
+    urls:
+      - "https://en.adgm.thomsonreuters.com/sites/default/files/net_file_store/ADGM1547_27534_VER03012025.pdf"

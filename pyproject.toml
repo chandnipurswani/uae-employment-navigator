@@ -1,0 +1,20 @@
+[project]
+name = "uae-employment-navigator"
+version = "0.1.0"
+description = "Which LLM should power a bilingual UAE employment-rules assistant? Jais vs Falcon vs Claude, measured."
+requires-python = ">=3.10"
+dependencies = ["pyyaml", "pypdf", "rank_bm25", "anthropic", "openai", "pandas", "matplotlib", "streamlit"]
+
+[project.optional-dependencies]
+embeddings = ["sentence-transformers"]
+dev = ["pytest"]
+
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
